@@ -16,15 +16,15 @@ class User {
     )
     return user[0]
   }
-  /*
+  
   static async findOne (columna, valor) {
     const [user] = await pool.execute(
-      `SELECT user_id, f_name, m_name, l_name, username, email, password, image FROM users WHERE ${columna} = ?`,
+      `SELECT id, nombre, paterno, materno, biografia , telefono, correo, password, imagen  FROM usuario WHERE ${columna} = ?`,
       [valor]
     )
     return user[0]
   }
-  */
+  
 
   static async create ({
     nombre,

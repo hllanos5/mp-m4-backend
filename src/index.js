@@ -1,6 +1,7 @@
 import express from 'express'
 import { PORT } from './config/config.js'
 import userRoutes from './routes/user.routes.js'
+import authRoutes from './routes/auth.routes.js'
 import morgan from 'morgan'
 import { validateCORS } from './middlewares/middleware.js'
 
@@ -10,5 +11,6 @@ app.use(express.json())
 app.use(validateCORS)
 
 app.use('/api/user', userRoutes)
+app.use('/api/auth', authRoutes)
 
 app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`))
