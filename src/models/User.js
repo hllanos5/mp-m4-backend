@@ -66,15 +66,15 @@ class User {
 
     return user
   }
-  /*
-  static async deleteByID (id) {
+  
+  static async deleteById (id) {
     const [resultado] = await pool.execute(
-      'DELETE FROM users WHERE user_id = ?',
+      'DELETE FROM usuario WHERE id = ?',
       [id]
     )
     return resultado
   }
-
+  /*
   static async update ({
     userId,
     fName,

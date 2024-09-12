@@ -42,11 +42,11 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-  /*
+  
   static async delete (req, res) {
     try {
       const { id } = req.params
-      const resultado = await User.deleteByID(id)
+      const resultado = await User.deleteById(id)
 
       if (resultado.affectedRows === 0) return res.status(400).json({ message: 'El usuario ya fue eliminado' })
 
@@ -55,7 +55,7 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-
+/*
   static async updatePut (req, res) {
     try {
       const { id } = req.params
