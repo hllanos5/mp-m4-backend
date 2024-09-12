@@ -96,29 +96,33 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-/*
+
   static async updatePatch (req, res) {
     try {
       const { id } = req.params
       const {
-        fName,
-        lName,
+        nombre,
+        paterno,
+        materno,
+        biografia,
+        telefono,
         username,
-        email,
+        correo,
         password,
-        mName,
-        image
+        imagen
       } = req.body
 
       const resultado = await User.update({
-        userId: id,
-        fName,
-        lName,
+        id: id,
+        nombre,
+        paterno,
+        materno,
+        biografia,
+        telefono,
         username,
-        email,
+        correo,
         password,
-        mName,
-        image
+        imagen
       })
 
       if (!resultado) return res.status(400).json({ message: 'No se enviaron datos para la actualización' })
@@ -132,7 +136,7 @@ class UserController {
     } catch (error) {
       res.status(500).json({ message: error.message })
     }
-  }*/
+  }
 }
 
 export default UserController
