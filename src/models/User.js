@@ -8,15 +8,15 @@ class User {
     )
     return users
   }
-  /*
+
   static async findById (id) {
     const [user] = await pool.execute(
-      'SELECT user_id, f_name, m_name, l_name, username, email, password, image FROM users WHERE user_id = ?',
+      'SELECT id, nombre, paterno, materno, biografia , telefono, correo, password, imagen  FROM usuario',
       [id]
     )
     return user[0]
   }
-
+  /*
   static async findOne (columna, valor) {
     const [user] = await pool.execute(
       `SELECT user_id, f_name, m_name, l_name, username, email, password, image FROM users WHERE ${columna} = ?`,

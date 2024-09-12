@@ -10,7 +10,7 @@ class UserController {
     }
   }
 
-  static async getByID (req, res) {
+  static async getById (req, res) {
     try {
       delete req.user.password
       res.json(req.user)
@@ -18,7 +18,7 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-
+  /*
   static async store (req, res) {
     try {
       const { fName, lName, username, email, password, mName, image } = req.body
@@ -125,7 +125,7 @@ class UserController {
     } catch (error) {
       res.status(500).json({ message: error.message })
     }
-  }
+  }*/
 }
 
 export default UserController
