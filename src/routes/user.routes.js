@@ -6,8 +6,8 @@ const router = Router()
 
 router.get('/', UserController.index)
 router.get('/:id', validateUserById, UserController.getById)
-/*router.post('/', UserController.store)
-router.delete('/:id', validateUserID, UserController.delete)
+router.post('/', UserController.create)
+/*router.delete('/:id', validateUserID, UserController.delete)
 router.put('/:id', validateUserID, UserController.updatePut)
 router.patch('/:id', validateUserID, UserController.updatePatch)*/
 

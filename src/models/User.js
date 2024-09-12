@@ -24,41 +24,41 @@ class User {
     )
     return user[0]
   }
-
+  */
 
   static async create ({
-    fName,
-    lName,
+    nombre,
+    paterno,
+    materno,
+    biografia,
+    telefono,
     username,
-    email,
+    correo,
     password,
-    mName,
-    image
+    imagen
   }) {
     const camposObligatorios = [
-      'f_name',
-      'l_name',
+      'nombre',
+      'paterno',
+      'materno',
+      'biografia',
+      'telefono',
       'username',
-      'email',
+      'correo',
       'password'
     ]
     const encriptada = await bcrypt.hash(password, 10)
-    const datosGuardar = [fName, lName, username, email, encriptada]
+    const datosGuardar = [nombre, paterno, materno, biografia, telefono, username, correo, encriptada]
 
-    if (mName) {
-      camposObligatorios.push('m_name')
-      datosGuardar.push(mName)
-    }
-
-    if (image) {
-      camposObligatorios.push('image')
-      datosGuardar.push(image)
+    if (imagen) {
+      camposObligatorios.push('imagen')
+      datosGuardar.push(imagen)
     }
 
     const stringCamposObligatorios = camposObligatorios.join(', ')
     const placeholders = camposObligatorios.map(() => '?').join(', ')
 
-    const query = `INSERT INTO users(${stringCamposObligatorios}) VALUES (${placeholders})`
+    const query = `INSERT INTO usuario(${stringCamposObligatorios}) VALUES (${placeholders})`
     const [resultado] = await pool.execute(query, datosGuardar)
     const user = await this.findById(resultado.insertId)
 
@@ -66,7 +66,7 @@ class User {
 
     return user
   }
-
+  /*
   static async deleteByID (id) {
     const [resultado] = await pool.execute(
       'DELETE FROM users WHERE user_id = ?',

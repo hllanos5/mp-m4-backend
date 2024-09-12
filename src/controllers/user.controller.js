@@ -2,6 +2,7 @@ import User from '../models/User.js'
 
 class UserController {
   static async index (req, res) {
+    console.log(req.body);
     try {
       const users = await User.all()
       res.json(users)
@@ -18,20 +19,22 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-  /*
-  static async store (req, res) {
+  
+  static async create (req, res) {
     try {
-      const { fName, lName, username, email, password, mName, image } = req.body
-      if (!fName || !lName || !username || !email || !password) return res.status(400).json({ message: 'Faltan datos' })
+      const { nombre, paterno, materno, biografia, telefono, username, correo, password, imagen } = req.body
+      if (!nombre || !paterno || !materno || !biografia || !telefono || !username || !correo || !password ) return res.status(400).json({ message: 'Faltan datos' })
 
       const user = await User.create({
-        fName,
-        lName,
+        nombre,
+        paterno,
+        materno,
+        biografia,
+        telefono,
         username,
-        email,
+        correo,
         password,
-        mName,
-        image
+        imagen
       })
 
       res.status(201).json({ message: 'Usuario creado', data: user })
@@ -39,7 +42,7 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-
+  /*
   static async delete (req, res) {
     try {
       const { id } = req.params
