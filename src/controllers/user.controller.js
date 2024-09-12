@@ -55,31 +55,35 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-/*
+
   static async updatePut (req, res) {
     try {
       const { id } = req.params
       const {
-        fName,
-        lName,
+        nombre,
+        paterno,
+        materno,
+        biografia,
+        telefono,
         username,
-        email,
+        correo,
         password,
-        mName,
-        image
+        imagen
       } = req.body
 
-      if (!fName || !lName || !username || !email || !password || !mName || !image) return res.status(400).json({ message: 'Datos incompletos' })
-
+      if (!nombre || !paterno || !materno || !biografia || !telefono || !username || !correo || !password ) return res.status(400).json({ message: 'Datos incompletos' })
+      
       const resultado = await User.update({
-        userId: id,
-        fName,
-        lName,
+        id: id,
+        nombre,
+        paterno,
+        materno,
+        biografia,
+        telefono,
         username,
-        email,
+        correo,
         password,
-        mName,
-        image
+        imagen
       })
 
       if (resultado.affectedRows === 0) return res.status(400).json({ message: 'No se pudo actualizar el usuario' })
@@ -92,7 +96,7 @@ class UserController {
       res.status(500).json({ message: error.message })
     }
   }
-
+/*
   static async updatePatch (req, res) {
     try {
       const { id } = req.params

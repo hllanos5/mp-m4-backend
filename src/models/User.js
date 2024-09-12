@@ -74,29 +74,41 @@ class User {
     )
     return resultado
   }
-  /*
+  
   static async update ({
-    userId,
-    fName,
-    lName,
+    id,
+    nombre,
+    paterno,
+    materno,
+    biografia,
+    telefono,
     username,
-    email,
+    correo,
     password,
-    mName,
-    image
+    imagen
   }) {
-    let query = 'UPDATE users SET '
+    let query = 'UPDATE usuario SET '
     const camposActualizar = []
     const valoresActualizar = []
 
-    if (fName) {
-      camposActualizar.push('f_name = ?')
-      valoresActualizar.push(fName)
+    if (nombre) {
+      camposActualizar.push('nombre = ?')
+      valoresActualizar.push(nombre)
     }
 
-    if (lName) {
-      camposActualizar.push('l_name = ?')
-      valoresActualizar.push(lName)
+    if (paterno) {
+      camposActualizar.push('paterno = ?')
+      valoresActualizar.push(paterno)
+    }
+
+    if (biografia) {
+      camposActualizar.push('biografia = ?')
+      valoresActualizar.push(biografia)
+    }
+
+    if (telefono) {
+      camposActualizar.push('telefono = ?')
+      valoresActualizar.push(telefono)
     }
 
     if (username) {
@@ -104,9 +116,9 @@ class User {
       valoresActualizar.push(username)
     }
 
-    if (email) {
-      camposActualizar.push('email = ?')
-      valoresActualizar.push(email)
+    if (correo) {
+      camposActualizar.push('correo = ?')
+      valoresActualizar.push(correo)
     }
 
     if (password) {
@@ -115,24 +127,19 @@ class User {
       valoresActualizar.push(encriptada)
     }
 
-    if (mName) {
-      camposActualizar.push('m_name = ?')
-      valoresActualizar.push(mName)
-    }
-
-    if (image) {
-      camposActualizar.push('image = ?')
-      valoresActualizar.push(image)
+    if (imagen) {
+      camposActualizar.push('imagen = ?')
+      valoresActualizar.push(imagen)
     }
 
     if (camposActualizar.length === 0) return undefined
-
-    query += camposActualizar.join(', ') + ' WHERE user_id = ?'
-    valoresActualizar.push(userId)
-
+   
+    query += camposActualizar.join(', ') + ' WHERE id = ?'
+    valoresActualizar.push(id)
     const [resultado] = await pool.execute(query, valoresActualizar)
+    
     return resultado
-  }*/
+  }
 }
 
 export default User
