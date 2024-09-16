@@ -6,8 +6,9 @@ export const validateCORS = (req, res, next) => {
 
     if (allowedOrigins.includes(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin || '*')
-      res.setHeader('Access-Control-Allow-Method', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
       res.setHeader('Access-Control-Allow-Headers', 'content-type, authorization')
+      
       next()
     } else {
       res.status(403).json({ message: 'No permitido por CORS' })
