@@ -2,7 +2,7 @@ import User from '../models/User.js'
 
 class UserController {
   static async index (req, res) {
-    console.log(req.body);
+    //#swagger.tags = ['User']
     try {
       const users = await User.all()
       res.json(users)
@@ -12,6 +12,7 @@ class UserController {
   }
 
   static async getById (req, res) {
+    //#swagger.tags = ['User']
     try {
       delete req.user.password
       res.json(req.user)
@@ -21,6 +22,7 @@ class UserController {
   }
   
   static async create (req, res) {
+    //#swagger.tags = ['User']
     try {
       const { nombre, paterno, materno, biografia, telefono, username, correo, password, imagen } = req.body
       if (!nombre || !paterno || !materno || !biografia || !telefono || !username || !correo || !password ) return res.status(400).json({ message: 'Faltan datos' })
@@ -44,6 +46,7 @@ class UserController {
   }
   
   static async delete (req, res) {
+    //#swagger.tags = ['User']
     try {
       const { id } = req.params
       const resultado = await User.deleteById(id)
@@ -57,6 +60,7 @@ class UserController {
   }
 
   static async updatePut (req, res) {
+    //#swagger.tags = ['User']
     try {
       const { id } = req.params
       const {
@@ -98,6 +102,7 @@ class UserController {
   }
 
   static async updatePatch (req, res) {
+    //#swagger.tags = ['User']
     try {
       const { id } = req.params
       const {

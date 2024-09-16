@@ -3,6 +3,7 @@ import fs from 'node:fs/promises'
 
 class ImageController {
   static async sendImage (req, res) {
+    //#swagger.tags = ['Image']
     try {
       const { nombre } = req.params
       if (!nombre) return res.status(400).json({ message: 'Se debe proveer el nombre de una imagen' })

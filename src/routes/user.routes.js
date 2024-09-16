@@ -3,7 +3,6 @@ import UserController from '../controllers/user.controller.js'
 import { validateUserById } from '../middlewares/user.middleware.js'
 
 const router = Router()
-
 router.get('/', UserController.index)
 router.get('/:id', validateUserById, UserController.getById)
 router.post('/', UserController.create)

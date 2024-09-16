@@ -4,7 +4,7 @@
   "description": "��#\u0000 \u0000m\u0000p\u0000-\u0000m\u00004\u0000-\u0000b\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000\r\u0000 \u0000",
   "main": "src/index.js",
   "scripts": {
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch swagger.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,10 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "mysql2": "^3.11.2"
+    "mysql2": "^3.11.2",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7"
   }
 }

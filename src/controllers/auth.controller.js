@@ -5,6 +5,7 @@ import { SECRET_KEY } from '../config/config.js'
 
 class AuthController {
   static async login (req, res) {
+    //#swagger.tags = ['Auth']
     try {
       const { username, password } = req.body
 
@@ -23,6 +24,7 @@ class AuthController {
   }
 
   static async me (req, res) {
+    //#swagger.tags = ['Auth']
     try {
       delete req.user.password
       res.json(req.user)
