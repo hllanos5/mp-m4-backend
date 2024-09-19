@@ -7,9 +7,9 @@ class AuthController {
   static async login (req, res) {
     //#swagger.tags = ['Auth']
     try {
-      const { username, password } = req.body
+      const { correo, password } = req.body
 
-      const user = await User.findOne('username', username)
+      const user = await User.findOne('correo', correo)
       if (!user) return res.status(404).json({ message: 'Usuario no encontrado' })
 
       const esValida = await bcrypt.compare(password, user.password)

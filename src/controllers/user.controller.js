@@ -24,8 +24,8 @@ class UserController {
   static async create (req, res) {
     //#swagger.tags = ['User']
     try {
-      const { nombre, paterno, materno, biografia, telefono, username, correo, password, imagen } = req.body
-      if (!nombre || !paterno || !materno || !biografia || !telefono || !username || !correo || !password ) return res.status(400).json({ message: 'Faltan datos' })
+      const { nombre, paterno, materno, biografia, telefono, correo, password, imagen } = req.body
+      if (!correo || !password ) return res.status(400).json({ message: 'Faltan datos' })
 
       const user = await User.create({
         nombre,
@@ -33,7 +33,6 @@ class UserController {
         materno,
         biografia,
         telefono,
-        username,
         correo,
         password,
         imagen
@@ -69,13 +68,12 @@ class UserController {
         materno,
         biografia,
         telefono,
-        username,
         correo,
         password,
         imagen
       } = req.body
 
-      if (!nombre || !paterno || !materno || !biografia || !telefono || !username || !correo || !password ) return res.status(400).json({ message: 'Datos incompletos' })
+      if (!nombre || !paterno || !materno || !biografia || !telefono || !correo || !password ) return res.status(400).json({ message: 'Datos incompletos' })
       
       const resultado = await User.update({
         id: id,
@@ -84,7 +82,6 @@ class UserController {
         materno,
         biografia,
         telefono,
-        username,
         correo,
         password,
         imagen

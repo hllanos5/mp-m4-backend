@@ -32,23 +32,44 @@ class User {
     materno,
     biografia,
     telefono,
-    username,
     correo,
     password,
     imagen
   }) {
-    const camposObligatorios = [
-      'nombre',
-      'paterno',
-      'materno',
-      'biografia',
-      'telefono',
-      'username',
-      'correo',
-      'password'
-    ]
-    const encriptada = await bcrypt.hash(password, 10)
-    const datosGuardar = [nombre, paterno, materno, biografia, telefono, username, correo, encriptada]
+    
+    const camposObligatorios = []
+    const datosGuardar = []
+
+    if(nombre){
+      datosGuardar.push(nombre)
+      camposObligatorios.push('nombre')
+    }
+    if(paterno){
+      datosGuardar.push(patenro)
+      camposObligatorios.push('paterno')
+    }
+    if(materno){
+      datosGuardar.push(materno)
+      camposObligatorios.push('materno')
+    }
+    if(biografia){
+      datosGuardar.push(biografia)
+      camposObligatorios.push('biografia')
+    }
+    if(telefono){
+      datosGuardar.push(telefono)
+      camposObligatorios.push('telefono')
+    }
+    if(correo){
+      datosGuardar.push(correo)
+      camposObligatorios.push('correo')
+    }
+
+    if(password){
+      const encriptada = await bcrypt.hash(password, 10)
+      datosGuardar.push(encriptada)
+      camposObligatorios.push('password')
+    }
 
     if (imagen) {
       camposObligatorios.push('imagen')
@@ -82,7 +103,6 @@ class User {
     materno,
     biografia,
     telefono,
-    username,
     correo,
     password,
     imagen
@@ -109,11 +129,6 @@ class User {
     if (telefono) {
       camposActualizar.push('telefono = ?')
       valoresActualizar.push(telefono)
-    }
-
-    if (username) {
-      camposActualizar.push('username = ?')
-      valoresActualizar.push(username)
     }
 
     if (correo) {
