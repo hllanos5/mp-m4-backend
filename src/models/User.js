@@ -45,7 +45,7 @@ class User {
       camposObligatorios.push('nombre')
     }
     if(paterno){
-      datosGuardar.push(patenro)
+      datosGuardar.push(paterno)
       camposObligatorios.push('paterno')
     }
     if(materno){

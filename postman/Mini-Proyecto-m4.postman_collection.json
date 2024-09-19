@@ -92,6 +92,35 @@
 					"response": []
 				},
 				{
+					"name": "registrarUsuario Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\": \"hans.llanos@gmail.com\",\r\n    \"password\": \"Hans123x*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "borrarUsuario",
 					"request": {
 						"method": "DELETE",
@@ -157,7 +186,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/3",
+							"raw": "http://localhost:3000/api/user/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -166,7 +195,7 @@
 							"path": [
 								"api",
 								"user",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -214,7 +243,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjE4MzY5MiwiZXhwIjoxNzI2MTg3MjkyfQ.FMgdBPlAHOqXeRzy_mfqF_S9lwELRS6NUaCftufCRe4",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjQ1Njc0NywiZXhwIjoxNzI2NDYwMzQ3fQ.j7qClPweW7hI59l1AQISUPLbO01XuRxKoNG65Z7vlpQ",
 								"type": "text"
 							}
 						],

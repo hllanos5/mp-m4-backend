@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 17:58:41
+-- Tiempo de generación: 19-09-2024 a las 20:54:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `miniproyecto_m4`
+-- Base de datos: `modulo4`
 --
 
 -- --------------------------------------------------------
@@ -29,12 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `usuario` (
   `id` bigint(20) NOT NULL,
-  `nombre` varchar(60) NOT NULL,
-  `paterno` varchar(60) NOT NULL,
-  `materno` varchar(60) NOT NULL,
-  `biografia` varchar(250) NOT NULL,
-  `telefono` varchar(20) NOT NULL,
-  `username` varchar(250) NOT NULL,
+  `nombre` varchar(60) DEFAULT NULL,
+  `paterno` varchar(60) DEFAULT NULL,
+  `materno` varchar(60) DEFAULT NULL,
+  `biografia` varchar(250) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
   `correo` varchar(100) NOT NULL,
   `password` varchar(250) NOT NULL,
   `imagen` varchar(100) DEFAULT NULL,
@@ -46,8 +45,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nombre`, `paterno`, `materno`, `biografia`, `telefono`, `username`, `correo`, `password`, `imagen`, `create_at`, `update_at`) VALUES
-(1, 'Hans3', 'Llanos', 'Chavez', 'Mi biografia', '961287931', 'hllanos', 'hans.llanos@gmail.com', '$2b$10$b0s5/m8hG/dIzZkeYz6Rw.PSsKLBdChg2lM9Id18oHO6nF2IsU6uu', 'image.png', '2024-09-12 23:22:28', '2024-09-16 05:19:25');
+INSERT INTO `usuario` (`id`, `nombre`, `paterno`, `materno`, `biografia`, `telefono`, `correo`, `password`, `imagen`, `create_at`, `update_at`) VALUES
+(1, 'Hans2', 'Llanos', NULL, 'Mi biografia', '961287931', 'hans.llanos@gmail.com', '$2b$10$g2ncb5O87.mUgW54O.zx2evwo15ddc/.ulszTcdaR1B8eiAyZr4ne', 'image.png', '2024-09-19 17:46:36', '2024-09-19 18:41:27'),
+(2, NULL, NULL, NULL, NULL, NULL, 'hans.llanos3@gmail.com', '$2b$10$Di/KbsG16CtVgMynVK81YucU6eLK4WB9.sNLOO4TZZ2FVmN1arC9a', NULL, '2024-09-19 18:00:43', '2024-09-19 18:00:43');
 
 --
 -- Índices para tablas volcadas
@@ -58,7 +58,6 @@ INSERT INTO `usuario` (`id`, `nombre`, `paterno`, `materno`, `biografia`, `telef
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `correo` (`correo`);
 
 --
